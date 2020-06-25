@@ -8,7 +8,7 @@ Smart house project works based on devices and sensors, where each device reacts
 
 # Diagram
 
-![Diagram](/blob/develop/diagram/Package%20smarthouse.png?raw=true "Diagram")
+![Diagram](/diagram/Package%20smarthouse.png?raw=true "Diagram")
 
 ### Project description
 
