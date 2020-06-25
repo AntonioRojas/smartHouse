@@ -1,0 +1,7 @@
+sensor=mov,mov-1,garage,true
+sensor=mov,mov-2,entrance,false
+sensor=temp,temp-1,room,20.0,19.0
+observer=light,lgt-1,garage,mov-1
+observer=light,lgt-2,entrance,mov-2
+observer=tv,tv-1,room,mov-2
+observer=courtain,crt-1,room,temp-1
