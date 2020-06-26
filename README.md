@@ -33,3 +33,47 @@ The controller responds to the user input and performs interactions on the data 
 ### Installation
 
 It requires java to run and optionally IntelliJ IDEA.
+
+### How to run
+
+Use the following configuration file [smartHouseSensors](/configuration/smartHouseSensors) to run this project.
+
+```java
+    public static void main( String[] args ) {
+        Simulation simulation = new Simulation();
+        simulation.loadSensor("smartHouseSensors file path here");
+    }
+```
+
+where we have sensors
+
+```
+sensor=<sensor type>,<id>,<location>,<sensor action>
+sensor=mov,mov-2,entrance,false
+sensor=temp,temp-1,room,20.0,19.0
+```
+
+and we have observers
+
+```
+observer=<observer type>,<id>,<location>,<sensor where it will be registered>
+observer=light,lgt-1,garage,mov-1
+observer=light,lgt-2,entrance,mov-2
+```
+
+the idea without using the simulation is
+
+```
+public static void main( String[] args ) {
+    List<IObserver> listeners = new ArrayList<>();
+    listeners.add(new Light("l-1","garage"));
+    listeners.add(new Light("l-2", "backyard"));
+    SensorMotion garage = new SensorMotion("m-1","garage", listeners);
+    garage.open();
+    System.out.println(garage.getSensorMessage());
+    System.out.println(garage.getObserverMessage());
+    garage.close();
+    System.out.println(garage.getSensorMessage());
+    System.out.println(garage.getObserverMessage());
+}
+```

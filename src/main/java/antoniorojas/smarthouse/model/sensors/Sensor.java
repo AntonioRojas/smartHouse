@@ -17,19 +17,21 @@ import java.util.List;
 public abstract class Sensor implements ISensor {
     protected String id;
     protected String location;
-    protected List<IObserver> listeners = new ArrayList<>();
+    protected List<IObserver> listeners;
     protected String sensorMessage;
     protected List<String> observerMessage;
 
     public Sensor(String id, String location) {
         this.id = id;
         this.location = location;
-        observerMessage = new ArrayList<>();
+        this.observerMessage = new ArrayList<>();
+        this.listeners = new ArrayList<>();
     }
 
     public Sensor(String id, String location, List<IObserver> listeners) {
         this.id = id;
         this.location = location;
+        this.observerMessage = new ArrayList<>();
         this.listeners = listeners;
     }
 
