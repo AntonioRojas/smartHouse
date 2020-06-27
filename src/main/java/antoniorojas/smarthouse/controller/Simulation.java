@@ -20,7 +20,7 @@ import java.io.*;
 import java.util.HashMap;
 
 public class Simulation {
-    private final static int TIMETOSLEEP = 30000;
+    private final static int TIMETOSLEEP = 60000;
     private final static int NUMBERSTOREAD = 5;
     private int count = 0 ;
     private HashMap<String, SensorMotion> sensorMotion;
@@ -131,14 +131,10 @@ public class Simulation {
                 sensorMotion.get(sensorProperty[1]).open();
                 System.out.println(sensorMotion.get(sensorProperty[1]).getSensorMessage());
                 System.out.println(sensorMotion.get(sensorProperty[1]).getObserverMessage());
-                sensorMotion.get(sensorProperty[1]).setSensorMessage(null);
-                sensorMotion.get(sensorProperty[1]).cleanObserverMessage();
             }else if (sensorProperty[3].equals("false") && sensorMotion.get(sensorProperty[1]).isState()){
                 sensorMotion.get(sensorProperty[1]).close();
                 System.out.println(sensorMotion.get(sensorProperty[1]).getSensorMessage());
                 System.out.println(sensorMotion.get(sensorProperty[1]).getObserverMessage());
-                sensorMotion.get(sensorProperty[1]).setSensorMessage(null);
-                sensorMotion.get(sensorProperty[1]).cleanObserverMessage();
             }
         }
     }
@@ -155,7 +151,6 @@ public class Simulation {
                 System.out.println(sensorTemperature.get(sensorProperty[1]).getSensorMessage());
                 System.out.println(sensorTemperature.get(sensorProperty[1]).getObserverMessage());
                 sensorTemperature.get(sensorProperty[1]).setSensorMessage(null);
-                sensorTemperature.get(sensorProperty[1]).cleanObserverMessage();
             }
         }
     }

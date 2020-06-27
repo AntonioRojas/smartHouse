@@ -57,6 +57,7 @@ public class SensorMotion extends Sensor {
     public void open() {
         if (!isState()) {
             setState(true);
+            cleanObserverMessage();
             this.notifyObservers(SENSORNAME, getState());
         }
     }
@@ -64,6 +65,7 @@ public class SensorMotion extends Sensor {
     public void close() {
         if (isState()) {
             setState(false);
+            cleanObserverMessage();
             this.notifyObservers(SENSORNAME,getState());
         }
     }

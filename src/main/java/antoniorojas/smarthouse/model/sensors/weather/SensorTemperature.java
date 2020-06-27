@@ -80,16 +80,18 @@ public class SensorTemperature extends Sensor {
         return sensorMessage;
     }
 
-    public void checkThresholdUp() {
+    private void checkThresholdUp() {
         if (currentWeather >= thresholdWeather && !isThresholdExceed()) {
             this.setThresholdExceed(true);
+            this.cleanObserverMessage();
             this.notifyObservers(SENSORNAME,SENSORHOT);
         }
     }
 
-    public void checkThresholdDown() {
+    private void checkThresholdDown() {
         if (currentWeather <= thresholdWeather && isThresholdExceed()) {
             this.setThresholdExceed(false);
+            this.cleanObserverMessage();
             this.notifyObservers(SENSORNAME,SENSORCOLD);
         }
     }
